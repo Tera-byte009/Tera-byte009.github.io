@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    background-color: rgb(109, 109, 109);
+    color: #fff;
+    padding: 1em;
+}
+
+aside {
+    flex: 2;
+    background-color: rgb(197, 248, 227);
+}
+
+main {
+    flex: 5;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+footer {
+    background-color: rgb(109, 109, 109);
+}
+
+.conteiner {
+    display: flex;
+    flex: 1;
+}
+
+.mainMenu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.mainMenu a {
+    text-decoration: none;
+    color: #fff;
+    padding-right: 1em;
+}
+
+/*Стили для карточки*/
+
+.card {
+    width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 4);
+}
+
+.card img {
+    width: 100%;
+}
+
+main a {
+    color: #333;
+    text-decoration: none;
+}
+
+main a,
+main a:visited {
+    color: #333;
+    text-decoration: none;
+}

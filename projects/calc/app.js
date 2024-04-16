@@ -28,6 +28,3 @@ equalsButton.addEventListener('click', () => {
         display.value = `Ошибка ${error.message}`
     }
 })
-
-
-

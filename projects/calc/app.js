@@ -1,30 +1,40 @@
-// Получаем доступ к HTML элементам
-const display = document.getElementById('display')
-const clearButton = document.getElementById('clear')
-const equalsButton = document.getElementById('equals')
-const operator = document.getElementById('.bthoperator')
-// Получить массив из кнопок
-const buttons = document.querySelectorAll('.btn')
-
-// Для каждой кнопки из массива вешаем прослушку события клика
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    const display = document.getElementById('display')
+    const buttons = document.querySelectorAll('.btn')
+    const clearButton = document.getElementById('clear')
+    const equalsButton = document.getElementById('equals')
+  
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
         const value = button.innerHTML
-        display.value += value
+        const currentDisplayValue = display.value
+        const lastChar = currentDisplayValue[currentDisplayValue.length - 1]
+  
+        // Проверяем, является ли последний символ оператором
+        const isLastCharOperator = ['+', '-', '*', '/'].includes(lastChar)
+        // Проверяем, является ли вводимый символ оператором
+        const isValueOperator = ['+', '-', '*', '/'].includes(value)
+  
+        // Если последний символ и вводимый символ являются операторами, заменяем последний символ
+        if (isLastCharOperator && isValueOperator) {
+          display.value = currentDisplayValue.slice(0, -1) + value
+        } else {
+          display.value += value
+        }
+      })
     })
-})
+  
+   
 
-// Прослушка на кнопку очистки
-clearButton.addEventListener('click', () => {
-    display.value = ``
-})
-
-// Вычисление значения
-equalsButton.addEventListener('click', () => {
-    try {
-        console.log(display.value[display.value.length-1])
+    clearButton.addEventListener('click', () => {
+        display.value = ''
+    })
+  
+    equalsButton.addEventListener('click', () => {
+      try {
         display.value = eval(display.value)
-    } catch (error) {
-        display.value = `Ошибка ${error.message}`
-    }
-})
+      } catch (error) {
+        display.value = `Ошибка в выражении: ${error.message}`
+      }
+    })
+  })

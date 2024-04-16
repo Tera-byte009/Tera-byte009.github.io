@@ -31,8 +31,3 @@ equalsButton.addEventListener('click', () => {
 
 
 
-if ( display = display.value[display.value.length-1]
-) {
-    display.value.delete(display.value[display.value.length-1])
-}
-   return display
